@@ -7,8 +7,8 @@ class Robut::Plugin::RandomGif
   desc "gif me <term> - asks trice nix to do find a random gif from giphy with <term> provided"
 
   match "^(gif me) (.+)$", sent_to_me: true do |matchers, message|
-    text = message.split(" ").join("+")
-    url = "http://api.giphy.com/v1/gifs/random?tag=#{text}&rating=pg-13&api_key=dc6zaTOxFJmzC"
+    term = message.split(" ").join("+")
+    url = "http://api.giphy.com/v1/gifs/random?tag=#{term}&rating=pg-13&api_key=#{ENV["GIPHY_API_KEY"]}"
     response = HTTParty.get(url)
     body = JSON.parse(response.body)
 
