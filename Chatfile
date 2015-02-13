@@ -1,0 +1,20 @@
+require_relative 'robut/plugin/randomgif'
+require 'robut/storage/hash_store'
+require 'robut/storage/yaml_store'
+require 'dotenv'
+
+Dotenv.load
+
+Robut::Plugin.plugins << Robut::Plugin::RandomGif
+
+Robut::Connection.configure do |config|
+  config.jid = ENV["ROBUT_JID"]
+  config.password = ENV["ROBUT_PASSWORD"]
+  config.nick = "Trice Nix"
+  config.room = [ENV["ROBUT_ROOM_1"], ENV["ROBUT_ROOM_2"]]
+  config.mention_name = "TriceNix"
+  config.enable_private_messaging = false
+  config.logger = Logger.new(STDOUT)
+  #Robut::Storage::YamlStore.file = "./.robut_store"
+  #config.store = Robut::Storage::YamlStore
+end
