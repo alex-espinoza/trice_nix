@@ -1,5 +1,5 @@
 require_relative 'robut/plugin/randomgif'
-require_relative 'robut/plugin/eightball'
+require_relative 'robut/plugin/majesticeightball'
 require_relative 'robut/plugin/unicodetext'
 require 'robut/storage/hash_store'
 require 'robut/storage/yaml_store'
@@ -8,8 +8,8 @@ require 'dotenv'
 Dotenv.load
 
 Robut::Plugin.plugins << Robut::Plugin::RandomGif
+Robut::Plugin.plugins << Robut::Plugin::MajesticEightBall
 Robut::Plugin.plugins << Robut::Plugin::UnicodeText
-Robut::Plugin.plugins << Robut::Plugin::EightBall
 
 Robut::Connection.configure do |config|
   config.jid = ENV["ROBUT_JID"]
