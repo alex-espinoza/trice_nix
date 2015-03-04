@@ -26,9 +26,10 @@ class Robut::Plugin::MajesticEightBall
 
   def get_random_yahoo_answer(link)
     question_page = Nokogiri::HTML(open(link))
-    answers = question_page.css("div.content").to_a.drop(1)
+    #answers = question_page.css("div.content").to_a.drop(1)
+    answers = question_page.css("span.ya-q-full-text").to_a
 
-    if answers.nil?
+    if answers.empty?
       failed_response
     else
       random_answer_response = answers.sample.text
