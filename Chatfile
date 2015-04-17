@@ -15,7 +15,7 @@ Robut::Connection.configure do |config|
   config.jid = ENV["ROBUT_JID"]
   config.password = ENV["ROBUT_PASSWORD"]
   config.nick = "Trice Nix"
-  config.room = [ENV["ROBUT_ROOM_1"], ENV["ROBUT_ROOM_2"]]
+  config.room = [ENV["ROBUT_ROOM_1"], ENV["ROBUT_ROOM_2"], ENV["ROBUT_ROOM_3"]]
   config.mention_name = "TriceNix"
   config.enable_private_messaging = false
   config.logger = Logger.new(STDOUT)
